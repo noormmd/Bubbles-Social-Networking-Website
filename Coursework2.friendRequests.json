@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "661fef3aa9e6ab0eb6d1e33e"
+  },
+  "sender": "lucy22",
+  "receiver": "noor22",
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "661fef58a9e6ab0eb6d1e340"
+  },
+  "sender": "amazing123",
+  "receiver": "user123",
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "661fef6ea9e6ab0eb6d1e342"
+  },
+  "sender": "currentLoggedInUser",
+  "receiver": "noor22",
+  "status": "accepted"
+}]

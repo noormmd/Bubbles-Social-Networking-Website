@@ -1,0 +1,659 @@
+/* Styling for sections */
+/* Hides all sections (aka pages) by default */
+.page {
+    display: none;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+}
+
+/* Hide main section when another section is targeted */
+:target~#mainPage {
+    display: none;
+}
+
+/* Display main section (welcome page) by default */
+#mainPage {
+    display: block;
+}
+
+/* Display targeted page */
+.page:target {
+    display: block;
+}
+
+/* Main styling for body, text and headers */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    background-image: url(images/background.jpg);
+    align-items: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* General text styling */
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* Heading 1 styling */
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    align-content: center;
+}
+
+/* Heading 2 styling */
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    align-content: center;
+}
+
+/* Form styling */
+div .form {
+    margin-left: 20px;
+    background: rgba(250, 251, 252, 0.133);
+    border-spacing: 50px;
+    border: solid;
+    border-radius: 12px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: rgba(133, 133, 196, 0.435);
+    margin-right: 20px;
+    flex: 1;
+}
+
+/* Input box styling */
+input {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    background-color: rgba(250, 251, 252, 0.133);
+    /*font-display: white;*/
+    border-color: azure;
+    border-radius: 20cap;
+    padding: 4px;
+    border-style: inherit;
+    margin-top: 4px;
+    padding-inline: 10px;
+    padding-left: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Placeholder text for input box styling */
+input::placeholder,
+select,
+p {
+    color: whitesmoke;
+}
+
+/* Navigation tabs border */
+nav {
+    background: rgba(250, 251, 252, 0.133);
+    border-spacing: 50px;
+    border: solid;
+    word-spacing: 70px;
+    border-radius: 12px;
+    border-style: outset;
+    border-color: rgba(133, 133, 196, 0.435);
+    border-width: 2px;
+    padding-bottom: 15px;
+    width: 800px;
+}
+
+/* Navigation tabs text */
+.tabs {
+    margin: 20px;
+    border: solid 2px;
+    border: 20px;
+    border-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    font-size: medium;
+}
+
+/* Change colour of tabs when hovered over */
+a:hover {
+    color: darkgray;
+}
+
+/* Logo image styling */
+#logo {
+    height: 55px;
+    width: 70px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+    margin-top: 4px;
+    background-color: white;
+    color: black;
+    padding: 2px 32px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12px;
+    border-style: groove;
+    border-color: lightskyblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Main section specific */
+/* Styling for website intro banner */
+#websiteIntro {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    place-self: center;
+}
+
+/* Positioning of welcome message in mainPage section */
+.websiteIntro {
+    position: relative;
+    z-index: 1;
+    margin-top: -180px;
+    font-size: 15px;
+}
+
+/* Bubbles gif in main page styling */
+#bubblesgif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 190px;
+    margin-top: 40px;
+    z-index: 0;
+    height: 300px;
+}
+
+/* Styling for main page section,
+Container splits main page into two parts
+Have welcome message on one side and login/registration on other */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    gap: 2px;
+    margin-left: 16px;
+    margin-bottom: 65px;
+}
+
+/* Top margin of login and register form on main page section */
+.container .form {
+    margin-top: 30px;
+
+}
+
+/* Messages section specific */
+/* Styling for messages and settings border */
+.messagesBorder {
+    text-align: center;
+    max-width: 90%;
+    border: solid 3px;
+    border-color: rgba(133, 133, 196, 0.435);
+    border-radius: 12px;
+    border-width: 2px;
+    max-height: fit-content;
+    margin-right: 2%;
+    padding-left: 30px;
+    border-style: outset;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center;
+    align-content: center;
+}
+
+/* Hover effect for messages and settings */
+.messagesBorder:hover {
+    background-color: rgba(250, 251, 252, 0.133);
+}
+
+/* Timeline section specific */
+/* To center and organise contents within the posts container */
+#posts {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for posts containing an image */
+.imagepost {
+    border: solid 2px;
+    border-color: rgba(133, 133, 196, 0.435);
+    border-radius: 12px;
+    border-width: 2px;
+
+    max-width: fit-content;
+    max-height: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    align-items: center;
+    align-content: center;
+}
+
+/* Styling for posts containing only text */
+.textpost {
+    border: solid 3px;
+    border-color: rgba(133, 133, 196, 0.435);
+    border-radius: 12px;
+    border-width: 2px;
+
+    max-width: fit-content;
+    max-height: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-style: outset;
+
+    align-items: center;
+    align-content: center;
+}
+
+/* Hover effect for posts */
+.textpost:hover,
+.imagepost:hover {
+    background-color: rgba(250, 251, 252, 0.133);
+}
+
+/* Styling for text and size of captions or text posts */
+.caption {
+    font-size: 14px;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+/* Styling for images within posts */
+.userPhoto {
+    max-height: 200px;
+    max-width: 300px;
+    border-radius: 12px;
+}
+
+/* Profile picture of posts styling */
+.profilePicture {
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+}
+
+/* Hover effect for like image functionality */
+#likeposticon:hover {
+    border: solid 1px;
+    border-radius: 20px;
+
+    border-color: red;
+}
+
+/* Hover effect for share post icon */
+#shareposticon:hover {
+    border: solid 1px;
+    border-radius: 30px;
+    border-color: rgb(0, 0, 0);
+}
+
+/* Profile section specific */
+/* Styling for user's profile border */
+#profileBorder {
+    width: 40%;
+    height: fit-content;
+    background: rgba(250, 251, 252, 0.133);
+    border-spacing: 50px;
+    border: solid;
+    border-radius: 12px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: rgba(133, 133, 196, 0.435);
+    padding-top: 6px;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+/* Size of text within profile div */
+#profileBorder p {
+    font-size: 15px;
+}
+
+/* Posts under profile styling */
+.profilePosts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profileUsername {
+    font-size: 1px;
+}
+
+/* Styling for navigation */
+/* Search bar styling */
+#searchBar {
+    margin-left: 10px;
+    width: 23%;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Styling for navigation menu */
+#searchItems {
+    padding-top: 4px;
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style for navigation links */
+#searchItems li a {
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+    display: block
+}
+
+/* Hover effect for navigation links */
+#searchItems li a:hover {
+    background-color: rgba(133, 133, 196, 0.435);
+}
+
+/* Styling for new post icon image */
+#postIcon {
+    padding: 20px;
+    height: 35px;
+    width: 35px;
+}
+
+/* For footer */
+/* Footer container styling for spacing and placement */
+#footer {
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    margin-top: -50px;
+    padding-left: 80%;
+    width: 13%;
+    margin-top: 10px;
+}
+
+/* Positioning, size and spacing of footer icons */
+#footer img {
+    margin-right: 10px;
+    padding-bottom: 5px;
+    height: 30px;
+
+    margin-left: 10px;
+}
+
+/* Follow button styling */
+.followButton {
+    align-items: center;
+    background-color: #442ea48e;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 30px;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    /*-webkit-user-select: none;*/
+    touch-action: manipulation;
+    vertical-align: baseline;
+
+    width: 100px;
+    height: 1px;
+}
+
+/* Hover effect for follow button, changes colour and size */
+.followButton:hover,
+.followButton:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/* Follow button hover effect */
+.followButton:hover {
+    transform: translateY(-1px);
+}
+
+/* When follow button has been clicked, change colour and size */
+.followButton:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+/* Footer*/
+#footer {
+    padding-top: 30px;
+}
+
+/* Post modal specific */
+/* The modal (background and positioning) */
+.bubbleModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Bubble modal content */
+.bubblemodal-content {
+    background-color: rgb(62, 62, 187);
+    margin: auto;
+    height: 90%;
+    padding: 5px;
+    border: 1px solid #888;
+    width: 500px;
+    border-radius: 12px;
+}
+
+/* Close button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Hover effect for close button */
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Comments container, spacing and size */
+.commentsDiv {
+    height: 10px;
+    width: 10px;
+}
+
+/* Caption text */
+#bubbleModal-caption p {
+    margin-left: 40px;
+
+}
+/* Share icon */
+#shareposticon {
+    height: 23px;
+    width: 23px;
+    padding-bottom: 5px;
+}
+
+/* All icons within post modal */
+.bubblemodal-content .icons img {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Section styling for comments */
+.commentsDiv {
+    padding-top: 3px;
+    padding-left: 10px;
+    border: solid 1px;
+    border-style: groove;
+    border-width: 2px;
+    border-color: rgba(250, 251, 252, 0.133);
+    width: 475px;
+    margin-left: 5px;
+    height: fit-content;
+    border-radius: 12px;
+    display: flex;
+    margin-bottom: 20px;
+
+}
+
+.commentsDiv p {
+    margin-left: 15px;
+
+}
+
+#commentProfilePic {
+    height: 30px;
+    width: 30px;
+    padding-top: 8px;
+}
+
+.bubble-CloseUp {
+    height: 270px;
+    border-radius: 12px;
+}
+
+.bubblemodal-content p {
+    font-size: 14px;
+    padding-bottom: 2px;
+}
+
+/* Input boxes styling for post modal */
+.bubblemodal-content input {
+    border: 0px;
+    border-style: inset;
+    margin: 2px;
+}
+
+/* Close button for post modal */
+.close1 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Hover effect for close button */
+.close1:hover,
+.close1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Create new post modal specific */
+/* The modal positioning and display */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    margin-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Styling for modal content */
+.modal-content {
+    background-color: rgb(62, 62, 187);
+    margin: auto;
+    height: 350px;
+    padding: 20px;
+    border: 1px solid #888;
+    border: 1px solid #888;
+    width: 500px;
+    border-radius: 12px;
+}
+
+/* Make upload image button for creating new post transparent */
+.uploadButton {
+    background-color: transparent;
+}
+
+/* Size of modal text */
+.modal-content p {
+    font-size: 15px;
+}
+
+/* Size of modal heading */
+.modal-content h2 {
+    font-size: 20px;
+}
+
+/* Text under create new post icon for modal */
+#newPost-p {
+    margin-top: -10px;
+    margin-left: 15px;
+    font-size: 14px;
+}

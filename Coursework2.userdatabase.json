@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "661f0c13a9e6ab0eb6d1e31a"
+  },
+  "username": "john_doe123",
+  "nickname": "JohnDoe",
+  "email": "john@example.com",
+  "password": "John123"
+},
+{
+  "_id": {
+    "$oid": "661f0c13a9e6ab0eb6d1e31b"
+  },
+  "username": "jane_smith456",
+  "nickname": "JaneSmith",
+  "email": "jane@example.com",
+  "password": "Jane123"
+},
+{
+  "_id": {
+    "$oid": "661f0c13a9e6ab0eb6d1e31c"
+  },
+  "username": "alex_jackson789",
+  "nickname": "AlexJackson",
+  "email": "alex@example.com",
+  "password": "Alex123"
+},
+{
+  "_id": {
+    "$oid": "661f283b8a7dfa8a73659b53"
+  },
+  "username": "janesmith456",
+  "nickname": "JaneSmith",
+  "email": "jane@example.com",
+  "password": "Jane123"
+},
+{
+  "_id": {
+    "$oid": "661f291f8a7dfa8a73659b54"
+  },
+  "username": "janesmith456",
+  "nickname": "JaneSmith",
+  "email": "janeexample.com",
+  "password": "Jane123"
+},
+{
+  "_id": {
+    "$oid": "661f31878a7dfa8a73659b56"
+  },
+  "username": "janesmith456",
+  "nickname": "JaneSmith",
+  "email": "jane@example.com",
+  "password": "Jane123"
+},
+{
+  "_id": {
+    "$oid": "661fe1f569859ff6e4522f22"
+  },
+  "username": "smith456",
+  "nickname": "JaneSmith",
+  "email": "jane@example.com",
+  "password": "Jane123"
+}]

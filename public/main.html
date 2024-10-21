@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubbles</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- Website logo -->
+    <div class="center">
+      <img id="logo" src="images/logo.svg" alt="Bubbles logo">
+    </div>
+  </header>
+
+  <!--Main/Initial page of website-->
+  <div id="mainPage1">
+
+    <div class="center">
+      <main>
+        <!--Main page that opens, with login and registration features-->
+        <section id="mainPage" class="page">
+          <br>
+          <!--Heading to welcome users-->
+          <div class="container">
+            <div class="websiteIntro">
+              <div class="center">
+                <h1>Welcome to Bubble. Your stop for real and authentic moments.</h1>
+              </div>
+              <img id="bubblesgif" src="images/bubblesgif.gif" alt="Gif of bubbles">
+            </div>
+
+            <!-- Register and login container -->
+            <div class="form">
+              <!-- Register form - name, username, email and password-->
+              <div class="register">
+                <div class="center">
+                  <h1>Register</h1>
+                  <br>
+                  <!-- Register form -->
+<input type="text" id="registerNickname" placeholder="Nickname"><br>
+<input type="text" id="registerUsername" placeholder="Username"><br>
+<input type="text" id="registerEmail" placeholder="Email"><br>
+<input type="password" id="registerPassword" placeholder="Password"><br>
+<input type="password" id="registerConfirmPassword" placeholder="Re-enter Password"><br>
+<button onclick="register()">Register</button>
+                </div>
+              </div>
+
+              <!-- Functionality to hide and unhide different sections, directed to from nav -->
+              <script src="../js/showSection.js"></script>
+
+              <!-- Login form - email and password -->
+              <div class="login">
+                <div class="center">
+                  <h1>Already have an account? Login</h1>
+                  <br>
+                  <!-- Login form -->
+<input type="text" id="loginEmail" placeholder="Email"><br>
+<input type="password" id="loginPassword" placeholder="Password"><br>
+<button onclick="login()">Login</button>
+                  <br><br><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <button onclick="showSection('#timeline')">Temporary</button>
+
+
+
+
+  <!-- Include Axios library -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!--Javascript for Register form-->
+  <script>
+
+    // set base path
+    const basePath = '/M00917263';
+
+// Function to validate email format
+function validateEmail(email) {
+    // Regular expression to check email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Function to handle registration
+function register() {
+    var email = document.getElementById('registerEmail').value;
+    var username = document.getElementById('registerUsername').value;
+    var password = document.getElementById('registerPassword').value;
+    var repassword = document.getElementById('registerConfirmPassword').value;
+    var nickname = document.getElementById('registerNickname').value;
+
+    // Validate email format
+    if (!validateEmail(email)) {
+        alert("Invalid email format");
+        return;
+    }
+
+  if (password !== repassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', `/M00917263/register`);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status === 201) {
+      alert('User registered successfully');
+      // Optionally, you can redirect the user to the login page or perform other actions upon successful registration
+    } else if (xhr.status === 400) {
+      var errorMessage = JSON.parse(xhr.responseText).message;
+      alert('Failed to register user: ' + errorMessage);
+    } else {
+      var errorMessage = xhr.responseText;
+      alert('Failed to register user: ' + errorMessage);
+    }
+  };
+  xhr.onerror = function () {
+    alert('Failed to connect to the server'); // Handle connection errors
+  };
+  xhr.send(JSON.stringify({ username: username, email: email, nickname: nickname, password: password }));
+}
+
+
+    // Function to handle login
+function login() {
+  var email = document.getElementById('loginEmail').value;
+  var password = document.getElementById('loginPassword').value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', `/M00917263/register`);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      var responseData = JSON.parse(xhr.responseText);
+      alert('Login successful');
+      // Redirect to a new page or perform other actions upon successful login
+    } else if (xhr.status === 401) {
+      alert('Invalid credentials');
+    } else {
+      var errorMessage = xhr.responseText;
+      alert('Failed to login: ' + errorMessage);
+    }
+  };
+  xhr.onerror = function () {
+    alert('Failed to connect to the server'); // Handle connection errors
+  };
+  xhr.send(JSON.stringify({ email: email, password: password }));
+}
+
+
+
+// Function to send a friend request
+function sendFriendRequest(receiverUsername) {
+    axios.post('/M00917263/sendFriendRequest', { receiverUsername })
+        .then(function (response) {
+            alert('Friend request sent successfully');
+            // Optionally, update UI to reflect the sent request
+        })
+        .catch(function (error) {
+            alert('Failed to send friend request: ' + error.response.data);
+        });
+}
+
+  </script>
+
+  <!-- Timeline section -->
+  <section id="timeline" class="page">
+
+    <!--Navigation tabs-->
+    <div class="center">
+      <nav>
+        <a class="tabs" href="#timeline">Timeline</a>
+        <a class="tabs" href="#messages">Messages</a>
+        <a class="tabs" href="#profile">Profile</a>
+        <a class="tabs" href="#settings">Settings</a>
+      </nav>
+    </div>
+
+    <!-- Header for timeline -->
+    <div class="center">
+      <h2>Timeline</h2>
+
+      <!-- Search bar -->
+      <input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Search.."
+        title="Type in your chosen category">
+
+      <!-- Menu items for more specific searches -->
+      <ul id="searchItems">
+        <li><a href="#">Users</a></li>
+        <li><a href="#">User's bubbles</a></li>
+        <li><a href="#">Friend's bubbles</a></li>
+        <li><a href="#">Friends</a></li>
+        <li><a href="#">Recommended people</a></li>
+      </ul>
+    </div>
+    <!-- JS for search functionality -->
+    <script src="../js/searchMenu.js"> </script>
+
+    <!-- Button for creating a new post, via a modal -->
+    <a id="newPost"><img id="postIcon" src="images/newpost.png" alt="New post"> </a>
+    <p id="newPost-p">Create new bubble</p>
+
+    <!-- Modal for creating a new post -->
+    <div id="newPost-Modal" class="modal">
+
+      <!-- Contents of new post modal -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Create new bubble</h2>
+        <div class="center">
+          <p>Create image post</p>
+          <input type="file" id="fileInput"><br>
+         <label for="photo-url">Enter URL:</label><br>
+      <input type="text" id="photo-url" name="photo-url"><br><br>
+          <script src="../js/upload.js"></script>
+                    <!-- Input to enter caption -->
+          <input type="text" id="captionInput" placeholder="Enter caption"><br><br>
+          <button onclick="uploadPost()">Upload Image</button>
+          <br><br>
+          <!-- To enter text for purely text posts, just submit without an image -->
+          <p>OR enter text (for text only post)</p>
+          <input type="text" id="textPost" placeholder="Text post"><br><br>
+          <button onclick="uploadTextPost()">Post</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Functions -->
+    <script>
+
+      function uploadImagePost() {
+        const fileInput = document.getElementById("fileInput");
+        const captionInput = document.getElementById("captionInput");
+
+        const file = fileInput.files[0];
+        const caption = captionInput.value;
+
+        if (file) {
+          const formData = new FormData(); // Initialize FormData here
+
+          // Append image file and caption to the FormData object
+          formData.append('image', file);
+          formData.append('caption', caption);
+
+          axios.post('/M00917263/uploadImagePost', formData)
+            .then(function (response) {
+              alert("Image with caption uploaded successfully!");
+            })
+            .catch(function (error) {
+              alert("Failed to upload image with caption. Please try again.");
+            });
+        } else {
+          alert("Please select an image.");
+        }
+      }
+
+      function uploadTextPost() {
+        const textPost = document.getElementById("textPost").value;
+
+        if (textPost) {
+          axios.post('/M00917263/uploadTextPost', { text: textPost })
+            .then(function (response) {
+              alert("Text post uploaded successfully!");
+              // Optionally, perform any other actions after successful upload
+            })
+            .catch(function (error) {
+              alert("Failed to upload text post. Please try again.");
+            });
+        } else {
+          alert("Please enter some text for the post.");
+        }
+      }
+
+
+
+    </script>
+
+    <!-- Posts -->
+    <div id="posts">
+      <!-- Clickable div to prompt post modal -->
+      <a id="bubblePopUp">
+        <!-- Example post with an image -->
+        <div class="imagepost">
+          <p>@noor22 shared</p>
+          <img class="userPhoto" src="images/coffee.jpg" alt="Image of coffee">
+          <p class="caption">First post!</p>
+        </div>
+      </a>
+
+      <!-- Example post with just text -->
+      <div class="textpost">
+        <p>@trisha21 posted</p>
+        <p class="caption">Hello, how is everyone?</p>
+      </div>
+
+      <!-- Example post with text -->
+      <div class="textpost">
+        <p>@heyitslola</p>
+        <p class="caption">The weather is so amazing today<br>Super stoked!</p>
+      </div>
+
+      <!-- Example post with image -->
+      <div class="imagepost">
+        <p>@abigail shared</p>
+        <img class="userPhoto" src="images/scenary.jpg" alt="Image of scenary">
+        <p class="caption">Saw this on my walk today</p>
+      </div>
+
+    </div>
+
+    <!--Modal for posts-->
+
+    <!-- The Modal -->
+    <div id="bubbleModal" class="bubbleModal">
+
+      <!--Contents of post modal-->
+      <div class="bubblemodal-content">
+
+        <span class="close1">&times;</span>
+
+        <br>
+        <!-- Image of post close up -->
+        <div class="center">
+          <img class="bubble-CloseUp" src="images/coffee.jpg" alt="Image of coffee">
+          <p id="bubbleModal-Caption">@Noor22 captioned this "First Post!"</p>
+
+          <!-- Icons for like and share -->
+          <div class="icons">
+            <img id="likeposticon" src="images/hearticon.png" alt="Like post">
+            <img id="shareposticon" src="images/shareposticon.png" alt="Share post">
+
+          </div>
+        </div>
+        <!--Seperate section for comments under posts-->
+        <div class="commentsDiv">
+          <img id="commentProfilePic" src="images/profile.png" alt="Comment profile picture">
+          <p>Noor22: What do you guys think of the coffee?</p>
+        </div>
+        <div class="center">
+          <!--To enter comment-->
+          <input type="text" id="comment" placeholder="Enter comment"><br>
+          <button>Post</button>
+        </div>
+        <br><br>
+        <script src="../js/bubbleModalUpload.js"></script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Messages section -->
+  <section id="messages" class="page">
+
+    <!--Navigation tabs-->
+    <div class="center">
+      <nav>
+        <a class="tabs" href="#timeline">Timeline</a>
+        <a class="tabs" href="#messages">Messages</a>
+        <a class="tabs" href="#profile">Profile</a>
+        <a class="tabs" href="#settings">Settings</a>
+      </nav>
+    </div>
+
+    <!-- Heading for Messages -->
+    <div class="center">
+      <h2>Messages</h2>
+
+      <!-- Messages with styled border -->
+      <div class="messagesBorder">
+        <p>@abigail: Hi</p>
+      </div>
+      <div class="messagesBorder">
+        <p>@lucy12: How are you</p>
+      </div>
+      <div class="messagesBorder">
+        <p>@colin21: How was your weekend?</p>
+      </div>
+      <div class="messagesBorder">
+        <p>@user123: Great post!</p>
+      </div>
+      <div class="messagesBorder">
+        <p>@emilyy: Hi</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Profile section, display user profile -->
+  <section id="profile" class="page">
+
+    <!--Navigation tabs-->
+    <div class="center">
+      <nav>
+        <a class="tabs" href="#timeline">Timeline</a>
+        <a class="tabs" href="#messages">Messages</a>
+        <a class="tabs" href="#profile">Profile</a>
+        <a class="tabs" href="#settings">Settings</a>
+      </nav>
+    </div>
+
+    <!-- Heading for Profile -->
+    <h2>Profile</h2>
+
+    <!-- Border for user's profile -->
+    <div id="profileBorder">
+
+      <!-- Username of user displayed -->
+      <p id="profileUsername">@noor22</p>
+      <!-- Profile picture otherwise display empty profile icon -->
+      <img class="profilePicture" src="images/profile.png" alt="User's profile picture">
+
+      <!-- Information about friend count, number of posts -->
+      <p>Friends: 5</p>
+      <p>Posts: 1</p>
+
+      <!-- Follow button -->
+      <button class="followButton">Follow</button>
+      <button class="followButton" onclick="sendFriendRequest('username')">Add Friend</button>
+
+      <!-- Posts of user displayed -->
+      <!-- Div to hold all posts by user, displayed within user profile -->
+      <div class="profilePosts">
+        <!-- Example post with image -->
+        <div class="imagepost">
+          <img class="userPhoto" src="images/coffee.jpg" alt="Picture of coffee">
+          <!-- Caption of user's post -->
+          <p class="caption">First post!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings section -->
+  <section id="settings" class="page">
+
+    <!--Navigation tabs-->
+    <div class="center">
+      <nav>
+        <a class="tabs" href="#timeline">Timeline</a>
+        <a class="tabs" href="#messages">Messages</a>
+        <a class="tabs" href="#profile">Profile</a>
+        <a class="tabs" href="#settings">Settings</a>
+      </nav>
+
+      <!-- Heading for Settings -->
+      <h2>Settings</h2>
+
+      <!-- Different settings with border -->
+      <div class="messagesBorder">
+        <p>Profile settings</p>
+      </div>
+      <div class="messagesBorder">
+        <p>Privacy</p>
+      </div>
+      <div class="messagesBorder">
+        <p>Accessibility</p>
+      </div>
+      <div class="messagesBorder">
+        <p>Contact us</p>
+      </div>
+      <div class="messagesBorder">
+        <p>Delete account or temporarily halt</p>
+      </div>
+    </div>
+
+  </section>
+
+<!--Footer with social handles and sharing option-->
+<div id="footer">
+  <img id="shareLink" src="images/sharelink.png" alt="Share to Instagram">
+  <img id="instagramLogo" src="images/instagramlogo.png" alt="Share our page">
+  <img id="twitterLogo" src="images/twitterlogo.png" alt="Share to X">
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "661f42ad89c5e4a538d108bb"
+  },
+  "type": "text",
+  "text": "Lovely day today"
+},
+{
+  "_id": {
+    "$oid": "661f439889c5e4a538d108bc"
+  },
+  "type": "hello",
+  "text": "Amazing weather"
+},
+{
+  "_id": {
+    "$oid": "661f4773a9e6ab0eb6d1e31f"
+  },
+  "type": "image",
+  "caption": "Beautiful sunset view",
+  "imageURL": "../uploads/sunset.jpg"
+},
+{
+  "_id": {
+    "$oid": "661fefbda9e6ab0eb6d1e347"
+  },
+  "type": "image",
+  "caption": "Wow",
+  "imageURL": "../uploads/coffee.jpg"
+}]
